@@ -1,9 +1,10 @@
 import { faMessage, faUser } from '@fortawesome/free-regular-svg-icons';
-import { faComputer, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faPeopleGroup, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Primary } from '../../assets/colors/Primary';
 import { Account } from '../screens/Account';
 import { Feedback } from '../screens/Feedback';
 import { Monitor } from '../screens/Monitor';
@@ -22,19 +23,24 @@ export const AppRoutes = (): JSX.Element => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName="Search">
       <Tab.Screen name="Search" component={Search} options={{
-        tabBarIcon: () => <FontAwesomeIcon icon={faMagnifyingGlass} />,
+        tabBarIcon: () => <FontAwesomeIcon icon={faMagnifyingGlass} size={18} color={Primary} />,
+        tabBarLabelStyle: { fontSize: 13, color: Primary },
       }} />
       <Tab.Screen name="Publish" component={Publish} options={{
-        tabBarIcon: () => <FontAwesomeIcon icon={faPlus} />,
+        tabBarIcon: () => <FontAwesomeIcon icon={faPlus} size={18} color={Primary} />,
+        tabBarLabelStyle: { fontSize: 13, color: Primary },
       }} />
       <Tab.Screen name="Monitor" component={Monitor} options={{
-        tabBarIcon: () => <FontAwesomeIcon icon={faComputer} />,
+        tabBarIcon: () => <FontAwesomeIcon icon={faPeopleGroup} size={30} color={Primary} />,
+        tabBarLabelStyle: { fontSize: 13, color: Primary },
       }} />
       <Tab.Screen name="Feedback" component={Feedback} options={{
-        tabBarIcon: () => <FontAwesomeIcon icon={faMessage} />,
+        tabBarIcon: () => <FontAwesomeIcon icon={faMessage} size={18} color={Primary} />,
+        tabBarLabelStyle: { fontSize: 13, color: Primary },
       }} />
       <Tab.Screen name="Account" component={Account} options={{
-        tabBarIcon: () => <FontAwesomeIcon icon={faUser} />,
+        tabBarIcon: () => <FontAwesomeIcon icon={faUser} size={18} color={Primary} />,
+        tabBarLabelStyle: { fontSize: 13, color: Primary },
       }} />
     </Tab.Navigator>
   );

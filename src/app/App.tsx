@@ -6,7 +6,7 @@ import { AppRoutes } from './routes/AppRoutes';
 export const App = (): JSX.Element => {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer >
         <AppRoutes />
       </NavigationContainer >
     </SafeAreaProvider>
