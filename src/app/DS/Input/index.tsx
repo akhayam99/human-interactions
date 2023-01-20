@@ -1,28 +1,24 @@
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
 
-interface Props {
-  value: string;
-  onChangeText: (text: string) => void;
-  placeholder?: string;
-  secureTextEntry?: boolean;
+interface Props extends TextInputProps {
+  icon?: any
 }
 
-export const HiInput: React.FC<Props> = ({ value, onChangeText, placeholder, secureTextEntry }) => {
-  console.log(value)
+export const HiInput: React.FC<Props> = ({ icon, ...props }) => {
   return (
-    <TextInput
-      value={value}
-      onChangeText={onChangeText}
-      placeholder={placeholder}
-      secureTextEntry={secureTextEntry}
-      style={styles.input}
-    ></TextInput>
+    <View style={styles.input}>
+      {!!icon && <FontAwesomeIcon icon={icon} size={30} />}
+      <TextInput {...props} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   input: {
+    display: 'flex',
+    flexDirection: 'row',
     height: 40,
     borderColor: 'black',
     borderWidth: 1,

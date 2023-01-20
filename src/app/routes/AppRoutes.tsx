@@ -3,7 +3,6 @@ import { faMagnifyingGlass, faPeopleGroup, faPlus } from '@fortawesome/free-soli
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Primary } from '../../assets/colors/Primary';
 import { Account } from '../screens/Account';
 import { Feedback } from '../screens/Feedback';
@@ -14,17 +13,14 @@ import { Search } from "../screens/Search";
 const Tab = createBottomTabNavigator();
 
 export const AppRoutes = (): JSX.Element => {
-  const { top } = useSafeAreaInsets()
-
-  console.log(top)
-
-  const prop = { focused: 1, color: 'red', size: 12 }
+  // const prop = { focused: 1, color: 'red', size: 12 }
 
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName="Search">
+    <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName="Search" sceneContainerStyle={{ borderBottomColor: 'red', borderBottomWidth: 1, borderStyle: 'solid' }}>
       <Tab.Screen name="Search" component={Search} options={{
         tabBarIcon: () => <FontAwesomeIcon icon={faMagnifyingGlass} size={18} color={Primary} />,
         tabBarLabelStyle: { fontSize: 13, color: Primary },
+        tabBarStyle: { backgroundColor: 'red' }
       }} />
       <Tab.Screen name="Publish" component={Publish} options={{
         tabBarIcon: () => <FontAwesomeIcon icon={faPlus} size={18} color={Primary} />,
