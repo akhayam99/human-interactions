@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
+import { Primary } from '../../../assets/colors/Primary';
 
 interface Props extends TextInputProps {
   icon?: any
@@ -9,7 +10,7 @@ interface Props extends TextInputProps {
 export const HiInput: React.FC<Props> = ({ icon, ...props }) => {
   return (
     <View style={styles.input}>
-      {!!icon && <FontAwesomeIcon icon={icon} size={30} />}
+      <FontAwesomeIcon icon={icon} size={20} />
       <TextInput {...props} />
     </View>
   );
@@ -17,14 +18,15 @@ export const HiInput: React.FC<Props> = ({ icon, ...props }) => {
 
 const styles = StyleSheet.create({
   input: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: 40,
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 12,
+    alignItems: 'center',
+    borderBottomColor: Primary,
+    borderBottomWidth: 1,
     color: 'black',
-    margin: 10,
-    padding: 10,
+    flex: 100,
+    flexDirection: 'row',
+    gap: 12,
+    margin: 2,
+    paddingVertical: 16,
+    paddingHorizontal: 12,
   },
 });

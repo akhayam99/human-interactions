@@ -5,7 +5,7 @@ export const BottomTabSafeArea: React.FunctionComponent<{
   children: JSX.Element,
 }> = ({ children }): JSX.Element => {
   return (
-    <SafeAreaView edges={['top']} style={{ flex: 100, }}>
+    <SafeAreaView edges={['top']} style={{ flex: 100, paddingHorizontal: 20 }}>
       {children}
     </SafeAreaView>
   );
